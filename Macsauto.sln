@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Macsauto.Domain", "Macsauto.Domain.Core\Macsauto.Domain.csproj", "{4C208993-7666-4342-8C18-B83B00B31CB7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Macsauto.Domain", "Macsauto.Domain\Macsauto.Domain.csproj", "{4C208993-7666-4342-8C18-B83B00B31CB7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Domain", "1. Domain", "{27529EDD-DA7A-4D43-BDAC-8542CCFED4DD}"
 EndProject
