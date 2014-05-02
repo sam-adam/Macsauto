@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Macsauto.Domain")]
+[assembly: AssemblyTitle("Macsauto.Domain.BranchManagement")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Macsauto.Domain")]
+[assembly: AssemblyProduct("Macsauto.Domain.BranchManagement")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2ed4fe1b-c5e6-4b43-a307-98ee47e91b0c")]
+[assembly: Guid("220ed26f-2d2f-4788-bad3-62b68c19361f")]
 
 // Version information for an assembly consists of the following four values:
 //
