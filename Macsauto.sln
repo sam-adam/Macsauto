@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Macsauto.Domain.BranchManag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Macsauto.Domain.Common", "Macsauto.Domain.Common\Macsauto.Domain.Common.csproj", "{9E296349-E0A3-4631-A6C1-1EB8534C6C96}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Infrastructure", "2. Infrastructure", "{71BBF663-CFBF-4D35-A705-7166D319FCF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Macsauto.Infrastructure.Persistence", "Macsauto.Infrastructure.Persistence\Macsauto.Infrastructure.Persistence.csproj", "{C0764B1B-1B95-402F-9BC5-678D27821474}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Macsauto.Infrastructure", "Macsauto.Infrastructure\Macsauto.Infrastructure.csproj", "{14196153-BAD2-4188-AB76-FADB105755A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +33,14 @@ Global
 		{9E296349-E0A3-4631-A6C1-1EB8534C6C96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E296349-E0A3-4631-A6C1-1EB8534C6C96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E296349-E0A3-4631-A6C1-1EB8534C6C96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0764B1B-1B95-402F-9BC5-678D27821474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0764B1B-1B95-402F-9BC5-678D27821474}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0764B1B-1B95-402F-9BC5-678D27821474}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0764B1B-1B95-402F-9BC5-678D27821474}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14196153-BAD2-4188-AB76-FADB105755A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14196153-BAD2-4188-AB76-FADB105755A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14196153-BAD2-4188-AB76-FADB105755A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14196153-BAD2-4188-AB76-FADB105755A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,5 +49,7 @@ Global
 		{4C208993-7666-4342-8C18-B83B00B31CB7} = {27529EDD-DA7A-4D43-BDAC-8542CCFED4DD}
 		{95472649-72C8-4D0A-8913-1EB93E79B526} = {27529EDD-DA7A-4D43-BDAC-8542CCFED4DD}
 		{9E296349-E0A3-4631-A6C1-1EB8534C6C96} = {27529EDD-DA7A-4D43-BDAC-8542CCFED4DD}
+		{C0764B1B-1B95-402F-9BC5-678D27821474} = {71BBF663-CFBF-4D35-A705-7166D319FCF6}
+		{14196153-BAD2-4188-AB76-FADB105755A2} = {71BBF663-CFBF-4D35-A705-7166D319FCF6}
 	EndGlobalSection
 EndGlobal
