@@ -1,4 +1,4 @@
-﻿namespace Macsauto.Domain.Core
+﻿namespace Macsauto.Domain
 {
     public interface IAggregateRoot
     {}

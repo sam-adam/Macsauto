@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Macsauto.Domain.Core
+namespace Macsauto.Domain
 {
     /// <summary>
     /// Value object base class

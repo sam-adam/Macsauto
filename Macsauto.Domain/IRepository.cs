@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 
-namespace Macsauto.Domain.Core
+namespace Macsauto.Domain
 {
     /// <summary>
     /// Repository main interface
     /// </summary>
     /// <typeparam name="TEntity">Entity this repository handles</typeparam>
     /// <typeparam name="TId">Entity's id this repository handles</typeparam>
-    public interface IRepository<TEntity, in TId> where TEntity : IAggregateRoot
+    public interface IRepository<TEntity, in TId> where TEntity : Entity<TEntity, TId>, IAggregateRoot
     {
         /// <summary>
         /// Find an entity based on it's id

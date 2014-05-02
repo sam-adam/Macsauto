@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Macsauto.Domain.Core
+namespace Macsauto.Domain
 {
     /// <summary>
     /// Entity base class

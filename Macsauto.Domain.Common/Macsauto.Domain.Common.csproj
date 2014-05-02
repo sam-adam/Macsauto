@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{95472649-72C8-4D0A-8913-1EB93E79B526}</ProjectGuid>
+    <ProjectGuid>{9E296349-E0A3-4631-A6C1-1EB8534C6C96}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Macsauto.Domain.BranchManagement</RootNamespace>
-    <AssemblyName>Macsauto.Domain.BranchManagement</AssemblyName>
+    <RootNamespace>Macsauto.Domain.Common</RootNamespace>
+    <AssemblyName>Macsauto.Domain.Common</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -35,20 +35,19 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Branch.cs" />
+    <Compile Include="Entities\Location\Address.cs" />
+    <Compile Include="Entities\Location\City.cs" />
+    <Compile Include="Entities\Location\Province.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IProvinceRepository.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Macsauto.Domain.Common\Macsauto.Domain.Common.csproj">
-      <Project>{9E296349-E0A3-4631-A6C1-1EB8534C6C96}</Project>
-      <Name>Macsauto.Domain.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Macsauto.Domain\Macsauto.Domain.csproj">
       <Project>{4C208993-7666-4342-8C18-B83B00B31CB7}</Project>
       <Name>Macsauto.Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

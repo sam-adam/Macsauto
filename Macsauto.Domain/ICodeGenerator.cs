@@ -1,4 +1,4 @@
-﻿namespace Macsauto.Domain.Core
+﻿namespace Macsauto.Domain
 {
     /// <summary>
     /// Interface for the code generator
