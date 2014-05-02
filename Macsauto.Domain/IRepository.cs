@@ -27,7 +27,7 @@ namespace Macsauto.Domain
         /// </summary>
         /// <param name="id">Entity's id</param>
         /// <returns>True if found, otherwise false</returns>
-        bool Exists(object id);
+        bool Exists(TId id);
 
         /// <summary>
         /// Get all entities
