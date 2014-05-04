@@ -6,10 +6,9 @@ using NHibernate;
 using NHibernate.Criterion;
 using NHibernate.Linq;
 
-namespace Macsauto.Infrastructure.Persistence
+namespace Macsauto.Infrastructure.Persistence.Repositories
 {
-    abstract class Repository<TEntity, TId> : IRepository<TEntity, TId>, IDisposable 
-        where TEntity : Entity<TEntity, TId>, IAggregateRoot
+    public abstract class Repository<TEntity, TId> : IRepository<TEntity, TId>, IDisposable where TEntity : Entity<TEntity, TId>, IAggregateRoot
     {
         private readonly ISession _session;
 
