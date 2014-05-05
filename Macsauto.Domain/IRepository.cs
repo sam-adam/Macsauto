@@ -7,14 +7,14 @@ namespace Macsauto.Domain
     /// </summary>
     /// <typeparam name="TEntity">Entity this repository handles</typeparam>
     /// <typeparam name="TId">Entity's id this repository handles</typeparam>
-    public interface IRepository<TEntity, in TId> where TEntity : Entity<TEntity, TId>, IAggregateRoot
+    public interface IRepository<TEntity> where TEntity : Entity, IAggregateRoot
     {
         /// <summary>
         /// Find an entity based on it's id
         /// </summary>
         /// <param name="id">Entity's id</param>
         /// <returns>Entity</returns>
-        TEntity Find(TId id);
+        TEntity Find(object id);
 
         /// <summary>
         /// Count all entity
@@ -27,7 +27,7 @@ namespace Macsauto.Domain
         /// </summary>
         /// <param name="id">Entity's id</param>
         /// <returns>True if found, otherwise false</returns>
-        bool Exists(TId id);
+        bool Exists(object id);
 
         /// <summary>
         /// Get all entities

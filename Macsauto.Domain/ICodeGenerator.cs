@@ -5,8 +5,7 @@
     /// assigned for <typeparamref name="TEntity"/>
     /// </summary>
     /// <typeparam name="TEntity">Entity to generate code into</typeparam>
-    /// <typeparam name="TId">Entity's Id</typeparam>
-    public interface ICodeGenerator<TEntity, TId> where TEntity : Entity<TEntity, TId>
+    public interface ICodeGenerator<TEntity> where TEntity : Entity
     {
         /// <summary>
         /// Generate a new human readable code

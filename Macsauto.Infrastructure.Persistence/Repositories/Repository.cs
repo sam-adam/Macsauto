@@ -8,7 +8,8 @@ using NHibernate.Linq;
 
 namespace Macsauto.Infrastructure.Persistence.Repositories
 {
-    public abstract class Repository<TEntity, TId> : IRepository<TEntity, TId>, IDisposable where TEntity : Entity<TEntity, TId>, IAggregateRoot
+    public abstract class Repository<TEntity, TId> : IRepository<TEntity, TId>, IDisposable 
+        where TEntity : Entity<TEntity, TId>, IAggregateRoot
     {
         private readonly ISession _session;
 

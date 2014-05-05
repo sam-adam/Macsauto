@@ -8,10 +8,7 @@ namespace Macsauto.Domain
     /// Entity represents an object with concerns on
     /// the domain model that has a life cycle
     /// </summary>
-    /// <typeparam name="TEntity">Type of entity</typeparam>
-    /// <typeparam name="TId">Type of entity's id</typeparam>
-    public abstract class Entity<TEntity, TId> : IEquatable<Entity<TEntity, TId>>
-        where TEntity : Entity<TEntity, TId>
+    public abstract class Entity
     {
         private DateTime _updatedOn;
         private DateTime _createdOn;
@@ -33,7 +30,7 @@ namespace Macsauto.Domain
         /// <summary>
         /// Entity's identity
         /// </summary>
-        public virtual TId Id { get; protected set; }
+        public virtual object Id { get; protected set; }
 
         /// <summary>
         /// Entity's human readable code
@@ -71,7 +68,7 @@ namespace Macsauto.Domain
         /// <exception cref="ApplicationException">
         /// If the entity's code has been pre-assigned
         /// </exception>
-        public void GenerateNewCode(ICodeGenerator<TEntity, TId> codeGenerator)
+        public void GenerateNewCode<TEntity>(ICodeGenerator<TEntity> codeGenerator) where TEntity : Entity
         {
             if (!String.IsNullOrEmpty(Code))
                 throw new ApplicationException(@"Code is already manually defined");
@@ -90,7 +87,7 @@ namespace Macsauto.Domain
         /// </returns>
         public bool IsTransient()
         {
-            return Equals(Id, default(TId));
+            return Equals(Id, null);
         }
 
         /// <summary>
@@ -103,32 +100,17 @@ namespace Macsauto.Domain
         /// to the <paramref name="other"/> parameter;
         /// otherwise, false.
         /// </returns>
-        public bool Equals(Entity<TEntity, TId> other)
+        public override bool Equals(object other)
         {
-            if (other == null)
+            var entity = other as Entity;
+
+            if (entity == null)
                 return false;
 
-            if (IsTransient() && other.IsTransient())
+            if (IsTransient() && entity.IsTransient())
                 return ReferenceEquals(this, other);
 
-            return Id.Equals(other.Id);
-        }
-
-        /// <summary>
-        /// Indicates whether the current entity
-        /// is equals to another entity
-        /// </summary>
-        /// <param name="obj">An object to compare with the this entity</param>
-        /// <returns>
-        /// True if the current object is equal
-        /// to the <paramref name="obj"/> parameter;
-        /// otherwise, false.
-        /// </returns>
-        public override bool Equals(object obj)
-        {
-            var other = obj as TEntity;
-
-            return Equals(other);
+            return Id.Equals(entity.Id);
         }
 
         /// <summary>
@@ -149,7 +131,7 @@ namespace Macsauto.Domain
         /// <param name="left">Left side entity to compare</param>
         /// <param name="right">Right side entity to compare</param>
         /// <returns>True if the entities are equal, otherwise false</returns>
-        public static bool operator ==(Entity<TEntity, TId> left, Entity<TEntity, TId> right)
+        public static bool operator ==(Entity left, Entity right)
         {
             return Equals(left, null) ? Equals(right, null) : left.Equals(right);
         }
@@ -160,7 +142,7 @@ namespace Macsauto.Domain
         /// <param name="left">Left side entity to compare</param>
         /// <param name="right">Right side entity to compare</param>
         /// <returns>True if the entities are unequal, otherwise false</returns>
-        public static bool operator !=(Entity<TEntity, TId> left, Entity<TEntity, TId> right)
+        public static bool operator !=(Entity left, Entity right)
         {
             return !(left == right);
         }
