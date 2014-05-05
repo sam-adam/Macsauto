@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace Macsauto.Domain.Common.Entities.Location
 {
-    public class Province : Entity<Province, int>, IAggregateRoot
+    public class Province : Entity, IAggregateRoot
     {
         private readonly IList<City> _cities;
         private string _name;

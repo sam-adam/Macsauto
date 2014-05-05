@@ -1,6 +1,6 @@
 ﻿namespace Macsauto.Domain.Common.Entities.Location
 {
-    public class City : Entity<City, int>
+    public class City : Entity
     {
         private readonly Province _province;
         private string _name;

@@ -4,7 +4,7 @@ using NHibernate;
 
 namespace Macsauto.Infrastructure.Persistence.Repositories.Common.Location
 {
-    public class ProvinceRepository : Repository<Province, int>, IProvinceRepository
+    public class ProvinceRepository : Repository<Province>, IProvinceRepository
     {
         public ProvinceRepository(ISession session) : base(session)
         {

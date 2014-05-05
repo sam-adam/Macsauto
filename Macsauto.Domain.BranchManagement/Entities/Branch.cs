@@ -1,9 +1,8 @@
-﻿using System;
-using Macsauto.Domain.Common.Entities.Location;
+﻿using Macsauto.Domain.Common.Entities.Location;
 
 namespace Macsauto.Domain.BranchManagement.Entities
 {
-    public class Branch : Entity<Branch, Guid>, IAggregateRoot
+    public class Branch : Entity, IAggregateRoot
     {
         private string _name;
         private Address _address;

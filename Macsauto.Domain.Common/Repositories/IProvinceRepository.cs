@@ -2,7 +2,7 @@
 
 namespace Macsauto.Domain.Common.Repositories
 {
-    public interface IProvinceRepository : IRepository<Province, int>
+    public interface IProvinceRepository : IRepository<Province>
     {
     }
 }

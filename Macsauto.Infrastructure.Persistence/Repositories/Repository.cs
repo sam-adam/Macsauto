@@ -8,8 +8,8 @@ using NHibernate.Linq;
 
 namespace Macsauto.Infrastructure.Persistence.Repositories
 {
-    public abstract class Repository<TEntity, TId> : IRepository<TEntity, TId>, IDisposable 
-        where TEntity : Entity<TEntity, TId>, IAggregateRoot
+    public abstract class Repository<TEntity> : IRepository<TEntity>, IDisposable 
+        where TEntity : Entity, IAggregateRoot
     {
         private readonly ISession _session;
 
@@ -23,7 +23,7 @@ namespace Macsauto.Infrastructure.Persistence.Repositories
             get { return _session; }
         }
 
-        public TEntity Find(TId id)
+        public TEntity Find(object id)
         {
             return _session.Get<TEntity>(id, LockMode.Read);
         }
@@ -40,7 +40,7 @@ namespace Macsauto.Infrastructure.Persistence.Repositories
                 .UniqueResult<TEntity>());
         }
 
-        public bool Exists(TId id)
+        public bool Exists(object id)
         {
             return Count(DetachedCriteria.For<TEntity>()
                 .Add(Restrictions.IdEq(id))
