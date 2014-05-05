@@ -5,5 +5,12 @@ namespace Macsauto.Infrastructure.Persistence.Mappings.Common.Location
 {
     public class ProvinceMap : ClassMap<Province>
     {
+        public ProvinceMap()
+        {
+            Map(x => x.Name);
+            HasMany(x => x.Cities)
+                .Cascade.SaveUpdate()
+                .LazyLoad();
+        }
     }
 }

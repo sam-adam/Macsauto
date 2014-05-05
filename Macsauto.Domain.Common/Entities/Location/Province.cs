@@ -21,7 +21,7 @@ namespace Macsauto.Domain.Common.Entities.Location
             set { _name = value; }
         }
 
-        public virtual ReadOnlyCollection<City> ReadOnlyCollection
+        public virtual ReadOnlyCollection<City> Cities
         {
             get { return new ReadOnlyCollection<City>(_cities); }
         }

@@ -1,17 +1,17 @@
-﻿using System;
-using FluentNHibernate.Mapping;
+﻿using FluentNHibernate.Mapping;
 using Macsauto.Domain;
-using NHibernate.Engine;
-using NHibernate.Id;
 
 namespace Macsauto.Infrastructure.Persistence.Mappings
 {
-    public abstract class EntityMap<TEntity> : ClassMap<TEntity> where TEntity : class
+    public abstract class EntityMap<TEntity> : ClassMap<TEntity> where TEntity : Entity
     {
         protected EntityMap()
         {
             Id(x => x.Id)
-                .GeneratedBy.HiLo();
+                .GeneratedBy.GuidComb();
+            Map(x => x.Code);
+            Map(x => x.CreatedOn);
+            Version(x => x.UpdatedOn);
         }
     }
 }
