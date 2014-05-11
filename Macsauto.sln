@@ -24,6 +24,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1587CC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Macsauto.Infrastructure.Crosscutting", "Macsauto.Infrastructure.Crosscutting\Macsauto.Infrastructure.Crosscutting.csproj", "{20A3533B-9C38-4649-8271-650F1FFC7C34}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Presentation", "3. Presentation", "{6D704B59-DB3E-452F-9084-B4A21C8915A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Macsauto.Presentation.WPF", "Macsauto.Presentation.WPF\Macsauto.Presentation.WPF.csproj", "{A54D0FFD-2528-4A31-B032-6DBBA0FD3B24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +58,10 @@ Global
 		{20A3533B-9C38-4649-8271-650F1FFC7C34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20A3533B-9C38-4649-8271-650F1FFC7C34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20A3533B-9C38-4649-8271-650F1FFC7C34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A54D0FFD-2528-4A31-B032-6DBBA0FD3B24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A54D0FFD-2528-4A31-B032-6DBBA0FD3B24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A54D0FFD-2528-4A31-B032-6DBBA0FD3B24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A54D0FFD-2528-4A31-B032-6DBBA0FD3B24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,5 +73,6 @@ Global
 		{C0764B1B-1B95-402F-9BC5-678D27821474} = {71BBF663-CFBF-4D35-A705-7166D319FCF6}
 		{14196153-BAD2-4188-AB76-FADB105755A2} = {71BBF663-CFBF-4D35-A705-7166D319FCF6}
 		{20A3533B-9C38-4649-8271-650F1FFC7C34} = {71BBF663-CFBF-4D35-A705-7166D319FCF6}
+		{A54D0FFD-2528-4A31-B032-6DBBA0FD3B24} = {6D704B59-DB3E-452F-9084-B4A21C8915A4}
 	EndGlobalSection
 EndGlobal
