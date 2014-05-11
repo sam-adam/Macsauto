@@ -1,4 +1,5 @@
-﻿using FluentNHibernate.Cfg;
+﻿using System;
+using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using Macsauto.Infrastructure.Persistence.Conventions;
 using Macsauto.Infrastructure.Persistence.Mappings.Common.Location;
@@ -7,14 +8,19 @@ using NHibernate.Context;
 
 namespace Macsauto.Infrastructure.Persistence
 {
+    /// <summary>
+    /// NHibernate's SessionFactory wrapper
+    /// </summary>
     public class NHibernateSessionFactory
     {
         private readonly string _connectionString;
         private ISessionFactory _sessionFactory;
+        private bool _isInitialized;
 
         public NHibernateSessionFactory(string connectionString)
         {
             _connectionString = connectionString;
+            _isInitialized = false;
         }
 
         public string ConnectionString
@@ -22,16 +28,51 @@ namespace Macsauto.Infrastructure.Persistence
             get { return _connectionString; }
         }
 
+        /// <summary>
+        /// Get SessionFactory's current session if available,
+        /// otherwise open another one
+        /// </summary>
         public ISession Session
         {
-            get { return _sessionFactory.GetCurrentSession() ?? _sessionFactory.OpenSession(); }
+            get
+            {
+                if (!_isInitialized)
+                {
+                    throw new Exception(@"SessionFactory is not initialized");
+                }
+
+                return _sessionFactory.GetCurrentSession() ?? _sessionFactory.OpenSession();
+            }
         }
 
+        /// <summary>
+        /// Get SessionFactory's current stateless session if available,
+        /// otherwise open another one
+        /// </summary>
         public IStatelessSession StatelessSession
         {
-            get { return _sessionFactory.OpenStatelessSession(); }
+            get
+            {
+                if (!_isInitialized)
+                {
+                    throw new Exception(@"SessionFactory is not initialized");
+                }
+
+                return _sessionFactory.OpenStatelessSession();
+            }
         }
 
+        /// <summary>
+        /// True if the Initiliaze() method has been called, otherwise false
+        /// </summary>
+        public bool IsInitialized
+        {
+            get { return _isInitialized; }
+        }
+
+        /// <summary>
+        /// Initialize the SessionFactory
+        /// </summary>
         public void Initialize()
         {
             _sessionFactory = Fluently.Configure()
@@ -43,6 +84,8 @@ namespace Macsauto.Infrastructure.Persistence
                     map.FluentMappings.AddFromAssemblyOf<ProvinceMap>();
                 })
                 .BuildSessionFactory();
+
+            _isInitialized = true;
         }
     }
 }

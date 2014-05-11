@@ -7,13 +7,9 @@ namespace Macsauto.Infrastructure.Persistence
 {
     public class InfrastructurePersistenceModule : BaseModule
     {
-        private readonly NHibernateSessionFactory _sessionFactory;
-
         public InfrastructurePersistenceModule(string connectionString)
         {
-            _sessionFactory = new NHibernateSessionFactory(connectionString);
-
-            _sessionFactory.Initialize();
+            NHibernateSessionManager.AddSessionFactory(new NHibernateSessionFactory(connectionString));
         }
 
         protected override void Load(ContainerBuilder builder)
@@ -23,10 +19,10 @@ namespace Macsauto.Infrastructure.Persistence
             builder.RegisterGeneric(typeof (Repository<>))
                 .As(typeof (IRepository<>))
                 .InstancePerLifetimeScope();
-            builder.RegisterInstance(_sessionFactory)
+            builder.Register(x => NHibernateSessionManager.SessionFactory)
                 .As<ISessionFactory>()
                 .SingleInstance();
-            builder.Register(x => _sessionFactory.Session)
+            builder.Register(x => NHibernateSessionManager.SessionFactory.Session)
                 .As<ISession>();
         }
     }
