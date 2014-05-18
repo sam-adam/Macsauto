@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="Entities\Account.cs" />
     <Compile Include="Entities\AccountClassification.cs" />
+    <Compile Include="Entities\FiscalYear.cs" />
+    <Compile Include="Entities\Period.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
