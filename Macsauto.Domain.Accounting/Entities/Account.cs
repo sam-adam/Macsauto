@@ -1,18 +1,28 @@
-﻿namespace Macsauto.Domain.Accounting.Entities
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+
+namespace Macsauto.Domain.Accounting.Entities
 {
+    /// <summary>
+    /// Account or chart of accounts (COA) is a created list of 
+    /// the accounts used by an organization to define each class of items for which money 
+    /// or the equivalent is spent or received.
+    /// </summary>
     public class Account : Entity, IAggregateRoot
     {
-        private string _name;
+        private readonly IList<Account> _children;
+        private readonly IList<AccountTransaction> _transactions;
         private AccountClassification _classification;
-        private double _debit;
-        private double _credit;
+        private String _name;
 
-        public Account(string code, string name, AccountClassification classification) : base(code)
+        public Account(string code, String name, AccountClassification classification) : base(code)
         {
+            _children = new List<Account>();
+            _transactions = new List<AccountTransaction>();
             _name = name;
             _classification = classification;
-            _debit = 0;
-            _credit = 0;
         }
 
         public virtual string Name
@@ -29,16 +39,64 @@
 
         public virtual Account Parent { get; set; }
 
-        public virtual double Debit
+        public IList<Account> Childrens
         {
-            get { return _debit; }
-            set { _debit = value; }
+            get { return new ReadOnlyCollection<Account>(_children); }
+        } 
+
+        public IList<AccountTransaction> Transactions
+        {
+            get { return new ReadOnlyCollection<AccountTransaction>(_transactions); }
         }
 
-        public virtual double Credit
+        public AccountTransaction AddTransaction(JournalEntry journal)
         {
-            get { return _credit; }
-            set { _credit = value; }
+            var transaction = new AccountTransaction(journal, this);
+            
+            _transactions.Add(transaction);
+
+            return transaction;
+        }
+
+        public Double TotalDebits(DateTime until)
+        {
+            return _transactions
+                .Where(x => x.TransactionDate < until && x.TransactionType == Type.Debit)
+                .Sum(x => x.Amount);
+        }
+
+        public Double TotalDebits()
+        {
+            return TotalDebits(DateTime.Now);
+        }
+
+        public Double TotalCredits(DateTime until)
+        {
+            return _transactions
+                .Where(x => x.TransactionDate < until && x.TransactionType == Type.Credit)
+                .Sum(x => x.Amount);
+        }
+
+        public Double TotalCredits()
+        {
+            return TotalCredits(DateTime.Now);
+        }
+
+        public Double Balance(DateTime asOf)
+        {
+            return TotalDebits(asOf) - TotalCredits(asOf);
+        }
+
+        public Double Balance()
+        {
+            return Balance(DateTime.Now);
+        }
+
+        public void AddChild(Account account)
+        {
+            _children.Add(account);
+
+            account.Parent = this;
         }
     }
 }

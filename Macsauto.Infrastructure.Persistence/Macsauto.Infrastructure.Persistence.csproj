@@ -57,6 +57,13 @@
     <Compile Include="Conventions\ColumnNameConvention.cs" />
     <Compile Include="Conventions\TableNameConvention.cs" />
     <Compile Include="InfrastructurePersistenceModule.cs" />
+    <Compile Include="Mappings\Accounting\AccountMap.cs" />
+    <Compile Include="Mappings\Accounting\AccountTransactionMap.cs" />
+    <Compile Include="Mappings\Accounting\FiscalYearMap.cs" />
+    <Compile Include="Mappings\Accounting\JournalEntryItemMap.cs" />
+    <Compile Include="Mappings\Accounting\JournalEntryMap.cs" />
+    <Compile Include="Mappings\Accounting\PeriodMap.cs" />
+    <Compile Include="Mappings\Common\Location\CityMap.cs" />
     <Compile Include="Mappings\Common\Location\ProvinceMap.cs" />
     <Compile Include="Mappings\EntityMap.cs" />
     <Compile Include="NHibernateSessionFactory.cs" />
@@ -69,6 +76,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Macsauto.Domain.Accounting\Macsauto.Domain.Accounting.csproj">
+      <Project>{7C458C41-755F-42D4-B84F-477126A27938}</Project>
+      <Name>Macsauto.Domain.Accounting</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Macsauto.Domain.Common\Macsauto.Domain.Common.csproj">
       <Project>{9E296349-E0A3-4631-A6C1-1EB8534C6C96}</Project>
       <Name>Macsauto.Domain.Common</Name>

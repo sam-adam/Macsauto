@@ -12,7 +12,7 @@ namespace Macsauto.Domain.Accounting.Entities
         private readonly DateTime _startDate;
         private readonly DateTime _endDate;
 
-        public Period(FiscalYear fiscalYear, DateTime startDate, DateTime endDate, string code) : base(code)
+        public Period(String code, FiscalYear fiscalYear, DateTime startDate, DateTime endDate) : base(code)
         {
             _fiscalYear = fiscalYear;
             _startDate = startDate;

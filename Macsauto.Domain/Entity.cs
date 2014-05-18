@@ -30,7 +30,7 @@ namespace Macsauto.Domain
         /// <summary>
         /// Entity's identity
         /// </summary>
-        public virtual object Id { get; protected set; }
+        public virtual Guid Id { get; protected set; }
 
         /// <summary>
         /// Entity's human readable code
@@ -87,7 +87,7 @@ namespace Macsauto.Domain
         /// </returns>
         public bool IsTransient()
         {
-            return Equals(Id, null);
+            return Equals(Id, default(Guid));
         }
 
         /// <summary>

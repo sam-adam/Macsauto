@@ -4,7 +4,9 @@ using FluentNHibernate.Cfg.Db;
 using Macsauto.Infrastructure.Persistence.Conventions;
 using Macsauto.Infrastructure.Persistence.Mappings.Common.Location;
 using NHibernate;
+using NHibernate.Cfg;
 using NHibernate.Context;
+using NHibernate.Tool.hbm2ddl;
 
 namespace Macsauto.Infrastructure.Persistence
 {
@@ -83,9 +85,15 @@ namespace Macsauto.Infrastructure.Persistence
                     map.FluentMappings.Conventions.AddFromAssemblyOf<ColumnNameConvention>();
                     map.FluentMappings.AddFromAssemblyOf<ProvinceMap>();
                 })
+                .ExposeConfiguration(BuildSchema)
                 .BuildSessionFactory();
 
             _isInitialized = true;
+        }
+
+        private void BuildSchema(Configuration conf)
+        {
+            new SchemaUpdate(conf).Execute(false, true);
         }
     }
 }

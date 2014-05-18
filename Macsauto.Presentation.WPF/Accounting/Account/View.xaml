@@ -23,9 +23,6 @@
         </controls:WindowCommands>
     </controls:MetroWindow.WindowCommands>
     <Grid>
-        <Label>Hello World</Label>
-        <TextBox Height="27" TextWrapping="Wrap" Text="TextBox" Width="117" Margin="10,57,390,185"/>
-        <Button Style="{DynamicResource MetroCircleButtonStyle}" Content="Button" HorizontalAlignment="Left" Margin="170,20,0,0" VerticalAlignment="Top" Width="55" Height="47"/>
+        <DataGrid ItemsSource="{Binding Accounts}"></DataGrid>
     </Grid>
-
 </controls:MetroWindow>

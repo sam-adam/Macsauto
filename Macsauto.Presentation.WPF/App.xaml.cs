@@ -13,5 +13,9 @@ namespace Macsauto.Presentation.WPF
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            BootStrap.Strap();
+        }
     }
 }
