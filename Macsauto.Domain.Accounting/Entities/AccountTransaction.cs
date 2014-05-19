@@ -30,7 +30,7 @@ namespace Macsauto.Domain.Accounting.Entities
         {
             get
             {
-                return _journalEntry.Items
+                return _journalEntry.JournalEntryItems
                     .First(x => x.Account == _account).Type;
             }
         }
@@ -44,7 +44,7 @@ namespace Macsauto.Domain.Accounting.Entities
         {
             get
             {
-                return _journalEntry.Items
+                return _journalEntry.JournalEntryItems
                     .Where(x => x.Account == _account)
                     .Sum(x => x.Amount);
             }

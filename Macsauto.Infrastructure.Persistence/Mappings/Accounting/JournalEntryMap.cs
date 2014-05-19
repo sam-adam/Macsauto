@@ -1,4 +1,5 @@
-﻿using Macsauto.Domain.Accounting.Entities;
+﻿using FluentNHibernate.Mapping;
+using Macsauto.Domain.Accounting.Entities;
 
 namespace Macsauto.Infrastructure.Persistence.Mappings.Accounting
 {
@@ -11,7 +12,8 @@ namespace Macsauto.Infrastructure.Persistence.Mappings.Accounting
             Map(x => x.Reference);
             Map(x => x.PostedOn)
                 .Nullable();
-            HasMany(x => x.Items)
+            HasMany(x => x.JournalEntryItems)
+                .Access.CamelCaseField(Prefix.Underscore)
                 .Inverse()
                 .Cascade.All();
         }

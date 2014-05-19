@@ -39,7 +39,7 @@ namespace Macsauto.Domain.Accounting.Entities
 
         public virtual Account Parent { get; set; }
 
-        public IList<Account> Childrens
+        public IList<Account> Children
         {
             get { return new ReadOnlyCollection<Account>(_children); }
         } 

@@ -8,9 +8,10 @@ namespace Macsauto.Infrastructure.Persistence.Mappings.Accounting
     {
         public JournalEntryItemMap()
         {
+            Not.LazyLoad();
+
             CompositeId()
-                .KeyReference(x => Reveal.Member<JournalEntryItem, JournalEntry>("_journalEntry"))
-                .Access.Field();
+                .KeyReference(x => x.JournalEntry, map => map.Access.CamelCaseField(Prefix.Underscore));
             Map(x => x.Type);
             Map(x => x.Amount);
         }

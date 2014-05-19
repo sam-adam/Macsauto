@@ -7,6 +7,8 @@ namespace Macsauto.Infrastructure.Persistence.Mappings
     {
         protected EntityMap()
         {
+            Not.LazyLoad();
+
             Id(x => x.Id)
                 .GeneratedBy.GuidComb();
             Map(x => x.Code);

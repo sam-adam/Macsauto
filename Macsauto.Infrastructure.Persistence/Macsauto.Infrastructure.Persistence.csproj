@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conventions\ColumnNameConvention.cs" />
+    <Compile Include="Conventions\ReferenceConvention.cs" />
     <Compile Include="Conventions\TableNameConvention.cs" />
     <Compile Include="InfrastructurePersistenceModule.cs" />
     <Compile Include="Mappings\Accounting\AccountMap.cs" />

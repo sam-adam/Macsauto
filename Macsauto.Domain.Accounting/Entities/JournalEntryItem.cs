@@ -12,6 +12,9 @@ namespace Macsauto.Domain.Accounting.Entities
         private readonly Type _type;
         private readonly Double _amount;
 
+        [Obsolete]
+        protected JournalEntryItem(){}
+
         public JournalEntryItem(JournalEntry journalEntry, Account account, Type type, Double amount)
         {
             _account = account;

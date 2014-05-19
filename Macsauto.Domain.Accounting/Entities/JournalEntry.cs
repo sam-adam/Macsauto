@@ -41,7 +41,7 @@ namespace Macsauto.Domain.Accounting.Entities
             get { return _reference; }
         }
 
-        public IList<JournalEntryItem> Items
+        public IList<JournalEntryItem> JournalEntryItems
         {
             get { return new ReadOnlyCollection<JournalEntryItem>(_journalEntryItems); }
         }
